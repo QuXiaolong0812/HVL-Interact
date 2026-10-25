@@ -1,0 +1,56 @@
+root: ..
+mode: supervised
+protocol: xsub
+seed: 3407
+paths:
+  data: data/processed/ntu120
+  split: data/splits/supervised_xsub.json
+  clip: weights/clip-vit-base-patch16
+  prompts: resources/prompts/ntu120_interactions.json
+  output: runs/supervised_xsub
+data:
+  frames: 120
+  root_joint: 0
+  scale_joint: 20
+  temporal_jitter: 0.15
+  crop_min: 0.9
+augmentation:
+  rotation_degrees: 15.0
+  noise_std: 0.005
+  mask_probability: 0.01
+  swap_probability: 0.5
+render:
+  size: 224
+  frames: 8
+  margin: 0.08
+  line_width: 2
+  joint_radius: 2
+model:
+  width: 512
+  channels: [128, 256, 512]
+  embed_dim: 512
+  heads: 8
+  temporal_layers: 1
+  spatial_layers: 2
+  dropout: 0.1
+  use_visual: true
+loss:
+  beta: 0.5
+  temperature: 0.07
+  level_weights: [1.0, 1.0, 1.0]
+  semantic_weights: [1.0, 1.0, 1.0]
+  label_smoothing: 0.1
+train:
+  epochs: 110
+  warmup_epochs: 10
+  batch_size: 16
+  accumulation_steps: 1
+  num_workers: 4
+  learning_rate: 0.001
+  min_learning_rate: 0.000001
+  weight_decay: 0.05
+  grad_clip: 1.0
+  precision: fp16
+  device: auto
+  deterministic: true
+

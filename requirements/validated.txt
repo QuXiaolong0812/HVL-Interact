@@ -1,0 +1,7 @@
+torch==2.6.0
+transformers==4.49.0
+numpy==2.3.5; python_version >= '3.11'
+numpy==2.2.6; python_version < '3.11'
+Pillow==12.3.0
+PyYAML==6.0.2
+safetensors==0.8.0

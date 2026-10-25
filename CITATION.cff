@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite this record and the associated manuscript."
+type: software
+title: "HVL-Interact: Hierarchical Vision–Language Alignment for Dual-Person Interaction Action Recognition"
+authors:
+  - name: HVL-Interact Contributors
+version: 0.1.0
+date-released: 2026-10-25
+license: MIT
+
